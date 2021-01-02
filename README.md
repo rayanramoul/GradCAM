@@ -1,6 +1,10 @@
 ## GradCAM algorithm
+ <div align="center">
+  <img src="https://github.com/raysr/Findr/blob/master/results/gradcam_bbx.png?raw=true" alt="screenshot1"></img>
+<br/>
+
 ### Principle : 
-GradCAM is an improved algorithm of CAM  (  that identifies regions discriminatively   )
+GradCAM is an improved algorithm of CAM  (  that identifies regions discriminatively   ), it can generate heatmap of important regions in an image when a model of classification do a prediction on it.
 In CAM, we weight these feature maps using weights taken out of the last fully-connected layer of the network. In Grad-CAM, we weight the feature maps using “alpha values” that are calculated based on gradients. Therefore, Grad-CAM does not require a particular architecture, because we can calculate gradients through any kind of neural network layer we want. The “Grad” in Grad-CAM stands for “gradient.”
 
 
@@ -32,13 +36,19 @@ K feature maps with each one a height of v and width u,  and final shape of [k, 
 
 ### Step 2 : Compute Alphas by mean of Gradients
 Compute mean gradient on height and width axes, which gives a value of gradient per neuron then we multiply it times  the gradient computed in step 1 which gives us this equation :
-[[./results/alpha_equation.png]]
+
+ <div align="center">
+  <img src="https://github.com/raysr/GradCAM/blob/master/results/alpha_equation.png?raw=true" alt="screenshot1"></img>
+<br/>
 
 Gradient Shape : [k, v, u], pooling on width and height and we finish with a shape of [k, 1, 1] or [k] alpha values.
 
 ### Step 3 : Compute Final Grad-CAM Heatmap
 We process this final equation : 
-[[./results/l_gradcam.png]]
+
+ <div align="center">
+  <img src="https://github.com/raysr/GradCAM/blob/master/results/l_gradcam.png?raw=true" alt="screenshot1"></img>
+<br/>
 
 - The size of the final heatmap is [u, v], the same size as the final convolutional feature map, but we can upsample it to fit the size of the original image.
 
@@ -64,8 +74,10 @@ AP = 1/11 * SUM_{Recall i} Precision(Recall_{i})
 
 - The mAP will be the average of the average precision over all the object classes.
 - However, the measures seen so far concern the problem of object classification, concerning that of object localization it is necessary to add a definition related to the surfaces of a bounding box and for that we use Localization and intersection on Union "Localization and Intersection over Union" it has the advantage of taking into account the models and types of predicted shapes (for example some models can locate objects in a rectangular area, andd other segmentation pixel by pixel) and this sums up to what extent the object to be predicted encroaches on the object predicted by the model as can be represented by the next figure.
-[[./results/iou.png]]
 
+ <div align="center">
+  <img src="https://github.com/raysr/GradCAM/blob/master/results/iou.pngraw=true" alt="screenshot1"></img>
+<br/>
 
 ## implementation
 There are 3 scripts each one have its content commented : 
@@ -81,8 +93,6 @@ A script to visualize 10 random images with bounding boxes of ground truth + gra
 - The is also a directory "results" containing : all_gt_dogs ( ground truth boxes ), and  all_detected_dogs for each threshold tested, those files help evaluate faster GradCAM ( with gradcam_evaluate.py )
 
 ## Results :
-Example of output :
-[[./results/gradcam_bbx.png]]
 
 The results of the implementation depends of threshold selected for the heatmap extracted with GradCAM
 
