@@ -79,7 +79,7 @@ AP = 1/11 * SUM_{Recall i} Precision(Recall_{i})
 - However, the measures seen so far concern the problem of object classification, concerning that of object localization it is necessary to add a definition related to the surfaces of a bounding box and for that we use Localization and intersection on Union "Localization and Intersection over Union" it has the advantage of taking into account the models and types of predicted shapes (for example some models can locate objects in a rectangular area, andd other segmentation pixel by pixel) and this sums up to what extent the object to be predicted encroaches on the object predicted by the model as can be represented by the next figure.
 
  <div align="center">
-  <img src="https://github.com/raysr/GradCAM/blob/master/results/iou.pngraw=true" alt="screenshot1"></img>
+  <img src="https://github.com/raysr/GradCAM/blob/master/results/iou.png?raw=true" alt="screenshot1"></img>
   </div>
 <br/>
 
