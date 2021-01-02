@@ -1,6 +1,7 @@
 ## GradCAM algorithm
  <div align="center">
   <img src="https://github.com/raysr/Findr/blob/master/results/gradcam_bbx.png?raw=true" alt="screenshot1"></img>
+  </div>
 <br/>
 
 ### Principle : 
@@ -39,6 +40,7 @@ Compute mean gradient on height and width axes, which gives a value of gradient 
 
  <div align="center">
   <img src="https://github.com/raysr/GradCAM/blob/master/results/alpha_equation.png?raw=true" alt="screenshot1"></img>
+  </div>
 <br/>
 
 Gradient Shape : [k, v, u], pooling on width and height and we finish with a shape of [k, 1, 1] or [k] alpha values.
@@ -48,6 +50,7 @@ We process this final equation :
 
  <div align="center">
   <img src="https://github.com/raysr/GradCAM/blob/master/results/l_gradcam.png?raw=true" alt="screenshot1"></img>
+  </div>
 <br/>
 
 - The size of the final heatmap is [u, v], the same size as the final convolutional feature map, but we can upsample it to fit the size of the original image.
@@ -77,6 +80,7 @@ AP = 1/11 * SUM_{Recall i} Precision(Recall_{i})
 
  <div align="center">
   <img src="https://github.com/raysr/GradCAM/blob/master/results/iou.pngraw=true" alt="screenshot1"></img>
+  </div>
 <br/>
 
 ## implementation
@@ -97,23 +101,23 @@ A script to visualize 10 random images with bounding boxes of ground truth + gra
 The results of the implementation depends of threshold selected for the heatmap extracted with GradCAM
 
 - threshold = 0.02
-    |        |       0.3 |       0.4 |       0.5 | \\
-    |--------+-----------+-----------+-----------| \\
-    | ap     | 46.853608 | 32.152346 | 17.796862 | \\
-    | recall | 61.132075 | 50.566038 | 36.792453 | \\
+    |        |       0.3 |       0.4 |       0.5 | \\<br/>
+    |--------+-----------+-----------+-----------| \\<br/>
+    | ap     | 46.853608 | 32.152346 | 17.796862 | \\<br/>
+    | recall | 61.132075 | 50.566038 | 36.792453 | \\<br/>
 
 
 - threshold = 0.01    
-    |        |       0.3 |       0.4 |       0.5 | \\
-    |--------+-----------+-----------+-----------| \\
-    | ap     | 48.880971 | 34.132415 | 17.308526 | \\
-    | recall | 62.075472 | 51.698113 | 36.226415 | \\
+    |        |       0.3 |       0.4 |       0.5 | \\<br/>
+    |--------+-----------+-----------+-----------| \\<br/>
+    | ap     | 48.880971 | 34.132415 | 17.308526 | \\<br/>
+    | recall | 62.075472 | 51.698113 | 36.226415 | \\<br/>
 
 - threshold = 0.06   
-    |        |       0.3 |       0.4 |       0.5 | \\
-    |--------+-----------+-----------+-----------| \\
-    | ap     | 47.716435 | 32.736706 | 18.843717 | \\
-    | recall | 61.698113 | 50.566038 | 37.547170 | \\
+    |        |       0.3 |       0.4 |       0.5 | \\<br/>
+    |--------+-----------+-----------+-----------| \\<br/>
+    | ap     | 47.716435 | 32.736706 | 18.843717 | \\<br/>
+    | recall | 61.698113 | 50.566038 | 37.547170 | \\<br/>
 
 
 ## What could be better :
