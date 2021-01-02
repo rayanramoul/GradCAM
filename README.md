@@ -1,6 +1,6 @@
 ## GradCAM algorithm
  <div align="center">
-  <img src="https://github.com/raysr/Findr/blob/master/results/gradcam_bbx.png?raw=true" alt="screenshot1"></img>
+  <img src="https://github.com/raysr/GradCAM/blob/master/results/gradcam_bbx.png?raw=true" alt="screenshot1"></img>
   </div>
 <br/>
 
